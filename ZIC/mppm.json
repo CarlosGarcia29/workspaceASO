@@ -1,0 +1,42 @@
+{  
+   "bbva":{  
+      "uuaa":"zic",
+      "remoteType":"RESTFUL"
+   },
+   "dtos":{ 
+      "PeticionTransaccion":{
+          "clientAccount": {
+            "type": "String",
+            "description": "Número de cuenta del cliente"
+         }
+      },
+       "RespuestaTransaccion":{
+          "clientAccount": {
+            "type": "String",
+            "description": "Número de cuenta del cliente"
+         }
+      }
+   },
+   "sn":{  
+      "targetDto" : "PeticionTransaccion",
+      "logicalId":"proxyServiceMPPM",
+      "registryId":"SNMX1500143",
+      "version":"V01",      
+      "description":"Entidad que modela los datos provenientes de una persona en RENAPO.",
+      "smcs":{  
+         "get": {
+            "all" : [
+                  {  
+                     "targetDto" : "PeticionTransaccion",
+                     "logicalId" : "proxyServiceMPPM",
+                     "registryId" : "SMCMX1500224",
+                     "description" : "Buscar una Persona en RENAPO basado en su CURP",
+                   
+                     "notes":"Aqui se añadira una JSON de ejemplo...",
+                     "gceErrors":[]
+                  }
+            ]
+         }
+      }
+   }
+}

@@ -1,0 +1,111 @@
+{  
+   "bbva":{  
+      "uuaa":"zic",
+      "remoteType":"RESTFUL"
+   },
+   "dtos":{ 
+      "OptionList":{
+          "id": {
+            "type": "String",
+            "description": "Codigo que identifica al elemento del listado"
+         },
+          "name": {
+            "type": "String",
+            "description": "Nombre del elemento del listado"
+         }
+      },
+      "IdentityDocument":{
+         "number": {
+            "type": "String",
+            "description": "Codigo asignado al documento"
+         },
+          "status": {
+            "type": "dto.OptionList",
+            "description": "estatus del documento"
+         },
+          "type": {
+            "type": "dto.OptionList",
+            "description": "Codigo que identifica al elemento del listado"
+         }
+      },
+      "PersonExtendedData":{
+         "birthPlace": {
+            "type": "String",
+            "description": "clave de la entidad federativa de nacimiento"
+         },
+         "sex": {
+            "type": "String",
+            "description": "sexo de la persona"
+         } 
+      },
+      "Country":{
+          "id": {
+            "type": "String",
+            "description": "Codigo que identifica al pais"
+         }
+      },
+      "Person":{  
+         "lastName": {
+            "type": "String",
+            "description": "apellido paterno"
+         },
+         "motherLastName": {
+            "type": "String",
+            "description": "apellido materno"
+         },
+         "name": {
+            "type": "String",
+            "description": "nombre o nombres"
+         },
+         "birthDate": {
+            "type": "String",
+            "description": "fecha de nacimiento"
+         },
+         "country": {
+            "type": "dto.Country",
+            "description": "clave de la nacionalidad"
+         },
+         "extendedData": {
+            "type": "dto.PersonExtendedData",
+            "description": "datos extendidos"
+         },
+         "identityDocument": {
+            "type": "List<dto.IdentityDocument>",
+            "description": "datos extendidos"
+         }
+      }
+   },
+   "sn":{  
+      "targetDto" : "Person",
+      "logicalId":"RenapoPersons",
+      "registryId":"SNMX1500000",
+      "version":"V01",      
+      "description":"Entidad que modela los datos provenientes de una persona en RENAPO.",
+      "smcs":{  
+         "get": {
+            "all" : [
+                  {  
+                     "targetDto" : "Person",
+                     "logicalId" : "getRenapoPerson",
+                     "registryId" : "SMCMX1500000",
+                     "description" : "Buscar una Persona en RENAPO basado en su CURP",
+                   
+                     "notes":"Aqui se añadira una JSON de ejemplo...",
+                     "gceErrors":[]
+                  }
+            ],
+            "all" : [
+                  {  
+                     "targetDto" : "Person",
+                     "logicalId" : "listRenapoPersons",
+                     "registryId" : "SMCMX1500001",
+                     "description" : "Listar Personas en RENAPO basado en ciertos criterios de busqueda",
+                   
+                     "notes":"Aqui se añadira una JSON de ejemplo...",
+                     "gceErrors":[]
+                  }
+            ]
+         }
+      }
+   }
+}

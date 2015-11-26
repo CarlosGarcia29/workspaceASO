@@ -1,0 +1,4 @@
+// ServicesArchitecture log opened at 2015-11-25 14:06:06
+sarc importTransaction --protocol PS9_MX --copy QGDTCCT.MPPM.TXT,QGDTFDF.MPPM.TXT,QGDTFDX.MPPM.TXT
+exit
+// ServicesArchitecture log closed at 2015-11-25 14:06:56

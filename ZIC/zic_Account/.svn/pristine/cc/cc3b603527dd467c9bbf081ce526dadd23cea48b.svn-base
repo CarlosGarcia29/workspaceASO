@@ -1,0 +1,37 @@
+package com.bbva.zic.accountsv02.facade.v02.utils;
+
+import org.springframework.stereotype.Component;
+
+import com.bbva.jee.arq.spring.core.servicing.gce.BusinessServiceException;
+import com.bbva.zic.accountsv02.business.utils.Constant;
+
+
+@Component
+public class Validator {
+
+	public void checkGetAccountParams(String accountId) {
+		
+		this.isBlank(accountId);
+	}
+	
+	public void isBlank (String string) {
+		
+		if (string == null || string.isEmpty()) {
+			this.throwWrongParameters();
+			
+		}
+	}
+	
+	public void isNull (Object object) {
+		
+		if (object == null) {
+			this.throwWrongParameters();
+			
+		}
+	}
+	
+	public void throwWrongParameters () {
+		
+		throw new BusinessServiceException(Constant.ERROR_WRONG_PARAMETERS);
+	}
+}

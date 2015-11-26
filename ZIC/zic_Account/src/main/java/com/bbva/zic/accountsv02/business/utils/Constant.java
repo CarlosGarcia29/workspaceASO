@@ -1,0 +1,19 @@
+package com.bbva.zic.accountsv02.business.utils;
+
+public class Constant {
+	
+	public static final String ERROR_WRONG_PARAMETERS = "wrongParameters";
+	public static final String ERROR_TECHNICAL_ERROR = "technicalError";
+	public static final String FIELDS_CURRENT_BALANCE = "currentBalance";
+	public static final String FIELDS_AVAILABLE_BALANCE = "availableBlance";
+	public static final String FIELDS_VALUED_BALANCE = "valuedBalance";
+	public static final String FIELDS_OPENING_DATE = "openingDate";
+	public static final String FIELDS_EXPIRATION_DATE = "expirationDate";
+	public static final String FIELDS_CANCELATION_DATE = "cancelationDate";
+	public static final String FIELDS_HAS_CHEQUE_BOOKS = "hasCheckBooks";
+	public static final String BOOLEAN_TRUE = "S";
+	public static final String BOOLEAN_FALSE = "N";
+	public static final String OPTIONSLIST_TYPE_ID = "00";
+	public static final String OPTIONSLIST_TYPE_ID_26 = "26";
+	public static final String OPTIONSLIST_TYPE_NAME = "Bloqueo General";
+}

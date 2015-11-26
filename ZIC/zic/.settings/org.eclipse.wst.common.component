@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="zic">
+        <wb-resource deploy-path="/" source-path="/target/m2e-wtp/web-resources"/>
+        <wb-resource deploy-path="/" source-path="/src/main/webapp" tag="defaultRootSource"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/java"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src/main/resources"/>
+        <dependent-module archiveName="zic_RenapoPersons-1.0.0.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/zic_RenapoPersons/zic_RenapoPersons">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="zic_accountsV02-1.0.0.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/zic_accountsV02/zic_accountsV02">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="zic_proxyServiceMPPM-1.0.0.jar" deploy-path="/WEB-INF/lib" handle="module:/resource/zic_proxyServiceMPPM/zic_proxyServiceMPPM">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <property name="context-root" value="zic_qsrv_01"/>
+        <property name="java-output-path" value="/zic/target/classes"/>
+    </wb-module>
+</project-modules>

@@ -1,0 +1,255 @@
+package com.bbva.zic.accountsv02.facade.v02.mapper;
+
+
+import java.util.ArrayList;
+import java.util.List;
+
+import org.springframework.stereotype.Component;
+
+import com.bbva.zic.accountsv02.business.dto.DTOIntAccount;
+import com.bbva.zic.accountsv02.business.dto.DTOIntAccountBlocking;
+import com.bbva.zic.accountsv02.business.dto.DTOIntBank;
+import com.bbva.zic.accountsv02.business.dto.DTOIntBranch;
+import com.bbva.zic.accountsv02.business.dto.DTOIntContractBlock;
+import com.bbva.zic.accountsv02.business.dto.DTOIntContractFormat;
+import com.bbva.zic.accountsv02.business.dto.DTOIntCurrency;
+import com.bbva.zic.accountsv02.business.dto.DTOIntMoney;
+import com.bbva.zic.accountsv02.business.dto.DTOIntOptionsList;
+import com.bbva.zic.accountsv02.business.dto.DTOIntProduct;
+import com.bbva.zic.accountsv02.facade.v02.dto.Account;
+import com.bbva.zic.accountsv02.facade.v02.dto.AccountBlocking;
+import com.bbva.zic.accountsv02.facade.v02.dto.Bank;
+import com.bbva.zic.accountsv02.facade.v02.dto.Branch;
+import com.bbva.zic.accountsv02.facade.v02.dto.ContractBlock;
+import com.bbva.zic.accountsv02.facade.v02.dto.ContractFormat;
+import com.bbva.zic.accountsv02.facade.v02.dto.Currency;
+import com.bbva.zic.accountsv02.facade.v02.dto.Money;
+import com.bbva.zic.accountsv02.facade.v02.dto.OptionsList;
+import com.bbva.zic.accountsv02.facade.v02.dto.Product;
+
+
+
+@Component
+public class Mapper {
+
+public Account mapDTOIntAccountToExt(DTOIntAccount dtoIntAccount) {
+		
+		Account account = new Account();
+				
+		if (dtoIntAccount != null) {										
+			
+					
+			account.setId(account.getId());
+			account.setFormats(this.mapContractFormatToExt(dtoIntAccount.getFormats()));
+			account.setProduct(this.mapDTOIntProductToExt(dtoIntAccount.getProduct()));
+			account.setSubproduct(this.mapDTOIntProductToExt(dtoIntAccount.getSubproduct()));
+			account.setCurrency(this.mapDTOIntCurrencyToExt(dtoIntAccount.getCurrency()));
+			account.setCurrentBalance(this.mapDTOIntMoneyToExt(dtoIntAccount.getCurrentBalance()));
+			account.setAvailableBalance(this.mapDTOIntMoneyToExt(dtoIntAccount.getAvailableBalance()));
+			account.setValuedBalance(this.mapDTOIntMoneyToExt(dtoIntAccount.getValuedBalance()));
+			account.setStatus(this.mapDTOIntOptionsListToExt(dtoIntAccount.getStatus()));
+			account.setBlock(this.mapDTOIntContractBlockToExt(dtoIntAccount.getBlock()));
+			account.setBranch(this.mapDTOIntBranchToExt(dtoIntAccount.getBranch()));					
+			account.setManagementUnit(dtoIntAccount.getManagementUnit());
+			account.setOpeningDate(dtoIntAccount.getOpeningDate());
+			account.setExpirationDate(dtoIntAccount.getExpirationDate());
+			account.setCancelationDate(dtoIntAccount.getCancelationDate());
+			account.setHasCheckBooks(dtoIntAccount.getHasCheckBooks());
+			account.setAsociateCCC(this.mapAccuntCuentaAsocciada(dtoIntAccount.getAsociateCCC()));
+			//nuevo
+			account.setBlocking(this.mapDTOIntAccoutnBlockingToExt(dtoIntAccount.getBlocking()));
+			account.setValuedBalanceDate(dtoIntAccount.getValuedBalanceDate());
+			account.setOwnershipType(dtoIntAccount.getOwnershipType());
+			account.setPendingBalance(this.mapDTOIntMoneyToExt(dtoIntAccount.getPendingBalance()));
+			account.setBookingBalance(this.mapDTOIntMoneyToExt(dtoIntAccount.getBookingBalance()));
+			account.setAccountNumber(dtoIntAccount.getAccountNumber());
+			account.setCheckDigit(dtoIntAccount.getCheckDigit());
+			
+		}
+												
+		return account;
+	}
+
+	public List<AccountBlocking> mapDTOIntAccoutnBlockingToExt(List<DTOIntAccountBlocking> dtoIntAccountBlockinglist){
+		
+		List<AccountBlocking> listAccountBlocking = new ArrayList<AccountBlocking>();
+		
+		if(dtoIntAccountBlockinglist != null){
+			
+			for(DTOIntAccountBlocking dtoIntAccountBlocking : dtoIntAccountBlockinglist){
+				
+				AccountBlocking accountBlocking = this.mapDTOIntAccountBlockingToExt(dtoIntAccountBlocking);
+				listAccountBlocking.add(accountBlocking);
+			}
+			
+		}
+		
+		return listAccountBlocking;
+		
+	}
+
+	public AccountBlocking mapDTOIntAccountBlockingToExt(DTOIntAccountBlocking dtoIntAccountBlocking){
+		
+		AccountBlocking accountBlocking = new AccountBlocking();
+		
+		if(dtoIntAccountBlocking != null){
+			
+			accountBlocking.setType(this.mapDTOIntOptionsListToExt(dtoIntAccountBlocking.getType()));
+		}
+		
+		return accountBlocking;
+		
+	}
+	
+	public Account mapAccuntCuentaAsocciada(DTOIntAccount dtoIntcuentaAsociada){
+		
+		Account cuentaAsociada = new Account();
+		
+		if(dtoIntcuentaAsociada != null){
+			
+			cuentaAsociada.setAsoCCC(dtoIntcuentaAsociada.getAsoCCC());
+		}
+		
+		return cuentaAsociada;
+	}
+
+	public ContractFormat mapContractFormatToExt(DTOIntContractFormat dtoIntcontractFormat) {
+		
+		ContractFormat contractFormat = new ContractFormat();;
+		
+		if (dtoIntcontractFormat != null) {
+			
+			
+			contractFormat.setCcc(dtoIntcontractFormat.getCcc());
+			contractFormat.setCABLE(dtoIntcontractFormat.getCABLE());
+		
+		}
+		
+		return contractFormat;
+	}
+
+	public Product mapDTOIntProductToExt(DTOIntProduct dtoIntproduct) {
+		
+		Product product = new Product();
+		
+		if (dtoIntproduct != null) {
+			
+			
+			product.setId(dtoIntproduct.getId());
+			
+		}				
+		
+		return product;
+	}	
+
+	public Currency mapDTOIntCurrencyToExt(DTOIntCurrency dtoIntCurrency) {
+		
+		Currency currency =  new Currency();
+		
+		if (dtoIntCurrency != null) {
+			
+
+			currency.setId(dtoIntCurrency.getId());
+			currency.setName(dtoIntCurrency.getName());
+			currency.setCode(dtoIntCurrency.getCode());
+			
+		}
+				
+		return currency;
+	}	
+	
+	public Money mapDTOIntMoneyToExt(DTOIntMoney dtoIntmoney) {
+		
+		Money money = new Money();
+		
+		if (dtoIntmoney != null) {
+			
+			
+			money.setAmount(dtoIntmoney.getAmount());
+			money.setCurrency(this.mapDTOIntCurrencyToExt(dtoIntmoney.getCurrency()));
+			
+		}
+						
+		return money;
+	}
+	
+	public OptionsList mapDTOIntOptionsListToExt(DTOIntOptionsList dtoInOptionsList) {
+		
+		OptionsList optionsList = new OptionsList();
+		
+		if (dtoInOptionsList != null) {
+			
+			
+			optionsList.setId(dtoInOptionsList.getId());
+			optionsList.setName(dtoInOptionsList.getName());
+			optionsList.setHref(dtoInOptionsList.getHref());
+			
+		}
+		
+		return optionsList;
+	}
+	
+	public ContractBlock mapDTOIntContractBlockToExt(DTOIntContractBlock dtoIntContractBlock) {
+		
+		ContractBlock contractBlock = new ContractBlock();
+		
+		if (dtoIntContractBlock != null) {
+			
+			
+			contractBlock.setId(dtoIntContractBlock.getId());
+			
+		}
+		
+		return contractBlock;
+	}
+	
+	public Branch mapDTOIntBranchToExt(DTOIntBranch dtoIntBranch) {
+		
+		Branch branch = new Branch();
+		
+		if (dtoIntBranch != null) {
+			
+			
+			branch.setId(dtoIntBranch.getId());
+			branch.setBank(this.mapDTOIntBankToExt(dtoIntBranch.getBank()));
+			
+		}
+		
+		return branch;
+	}
+	
+	public Bank mapDTOIntBankToExt(DTOIntBank dtoIntBank) {
+		
+		Bank bank = new Bank();
+		
+		if (dtoIntBank != null) {
+			
+			
+			bank.setId(dtoIntBank.getId());
+			
+		}
+		
+		return bank;
+	}
+
+	public static DTOIntAccount mapDTOExtAccountToInt(Account account) {
+		DTOIntAccount dtoInt = new DTOIntAccount();
+		dtoInt.setProduct(new DTOIntProduct());
+		dtoInt.getProduct().setId(account.getProduct().getId());
+
+		if (account.getBranch() != null) {
+			dtoInt.setBranch(new DTOIntBranch());
+			dtoInt.getBranch().setId(account.getBranch().getId());
+
+			if (account.getBranch().getBank() != null) {
+				dtoInt.getBranch().setBank(new DTOIntBank());
+				dtoInt.getBranch().getBank().setId(account.getBranch().getBank().getId());
+			}
+		}
+
+		return dtoInt;
+	}
+	
+	
+}
+

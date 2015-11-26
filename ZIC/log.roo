@@ -1,0 +1,9 @@
+// ServicesArchitecture log opened at 2015-11-24 12:01:09
+sarc createApplication --uuaa zic
+sarc createSN --descriptorFile curp.json
+exit
+// ServicesArchitecture log closed at 2015-11-24 12:05:30
+// ServicesArchitecture log opened at 2015-11-25 12:21:25
+sarc createSN --descriptorFile mppm.json
+exit
+// ServicesArchitecture log closed at 2015-11-25 13:51:30

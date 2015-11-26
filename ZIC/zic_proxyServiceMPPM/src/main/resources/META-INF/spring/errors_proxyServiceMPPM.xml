@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<error-definitions application="zic" architecture="SpringServicingArchitecture" family="proxyServiceMPPM" servicing:business-service="proxyServiceMPPM" xmlns="http://bbva.com/gce" xmlns:servicing="http://bbva.com/arq-spring-servicing/gce-extension">
+	<!-- Define here your GCE errors. For example:
+	<error-definition severity="FATAL" alias="proxyServiceMPPMNotFound" code="1" servicing:http-status="409">
+		<message>ProxyServiceMPPM not found.</message>		
+		<message lang="en">ProxyServiceMPPM not found.</message>
+	</error-definition>
+	-->
+</error-definitions>
